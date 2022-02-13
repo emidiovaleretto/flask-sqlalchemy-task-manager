@@ -9,4 +9,4 @@ def home():
 
 @app.route("/new-task")
 def new_task():
-    return render_template("new_task.html", page_title="new_task")
+    return render_template("tasks.html", page_title="new_task")
