@@ -10,3 +10,7 @@ def home():
 @app.route("/new-task")
 def new_task():
     return render_template("tasks.html", page_title="new_task")
+
+@app.route("/categories")
+def categories():
+    return render_template("categories.html", page_title="categories")
