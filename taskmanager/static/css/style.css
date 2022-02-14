@@ -12,6 +12,7 @@ body {
     flex: 1 0 auto;
   }
 
+  .card,
   .btn,
   .btn-large {
     border-radius: 5px;
