@@ -41,7 +41,7 @@ def edit_category(category_id):
 
 
 @app.route("/remove_category/<int:category_id>")
-def remove_category(category_id):
+def delete_category(category_id):
 
     category_to_delete = Category.query.get_or_404(category_id)
     db.session.delete(category_to_delete)
