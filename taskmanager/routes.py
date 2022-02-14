@@ -56,15 +56,12 @@ def add_task():
     # Retrieve all categories from DB and display them in the select input
     categories = list(Category.query.order_by(Category.category_name).all())
 
-    # Get id from selected category in the form.
-    id = Category.query.filter_by(id=Category.id).first().id
-
     if request.method == "POST":
         task_name = request.form.get("task_name")
         task_description = request.form.get("task_description")
-        is_urgent = True if request.form.get("is_urgent") == "on" else False
-        due_date = request.form.get("date_due")
-
+        is_urgent = True if request.form.get("is_urgent") else False
+        due_date = request.form.get("due_date")
+        id = request.form.get("category_id")
         
         task_to_save = Task(
             task_name=task_name,
@@ -77,6 +74,6 @@ def add_task():
         db.session.add(task_to_save)
         db.session.commit()
 
-        return redirect(url_for('new_task'))
+        return redirect(url_for('home'))
 
     return render_template("add_task.html", page_title="add_task", categories=categories)
