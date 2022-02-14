@@ -11,3 +11,8 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  .btn,
+  .btn-large {
+    border-radius: 5px;
+  }
