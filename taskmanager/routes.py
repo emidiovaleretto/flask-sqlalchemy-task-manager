@@ -48,3 +48,35 @@ def delete_category(category_id):
     db.session.commit()
     
     return redirect(url_for("categories"))
+
+
+@app.route("/add_task", methods=["GET","POST"])
+def add_task():
+
+    # Retrieve all categories from DB and display them in the select input
+    categories = list(Category.query.order_by(Category.category_name).all())
+
+    # Get id from selected category in the form.
+    id = Category.query.filter_by(id=Category.id).first().id
+
+    if request.method == "POST":
+        task_name = request.form.get("task_name")
+        task_description = request.form.get("task_description")
+        is_urgent = True if request.form.get("is_urgent") == "on" else False
+        due_date = request.form.get("date_due")
+
+        
+        task_to_save = Task(
+            task_name=task_name,
+            task_description=task_description,
+            is_urgent=is_urgent,
+            due_date=due_date,
+            category_id=id
+        )
+
+        db.session.add(task_to_save)
+        db.session.commit()
+
+        return redirect(url_for('new_task'))
+
+    return render_template("add_task.html", page_title="add_task", categories=categories)
