@@ -4,6 +4,10 @@ body {
     flex-direction: column;
   }
 
+  .container {
+    margin-bottom: 16px;
+  }
+
   .brand-logo {
     margin-left: 20px;
   }
