@@ -38,3 +38,13 @@ def edit_category(category_id):
         return redirect(url_for("categories"))
         
     return render_template("edit_category.html", category=category)
+
+
+@app.route("/remove_category/<int:category_id>")
+def remove_category(category_id):
+
+    category_to_delete = Category.query.get_or_404(category_id)
+    db.session.delete(category_to_delete)
+    db.session.commit()
+    
+    return redirect(url_for("categories"))
