@@ -23,8 +23,18 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('new_task') }}">New Task</a></li>
-                    <li><a href="{{ url_for('categories') }}">Categories</a></li>   
+
+                    <!-- Dropdown Add New Task -->
+                    <ul id="add_task" class="dropdown-content">
+                        <li><a href="{{ url_for('add_task') }}">Add<i class="fas fa-plus-square right"></i></a></li>
+                    </ul>
+                    <a class="btn-small blue darken-3 dropdown-trigger" href="#!" data-target="add_task">Add New Task</a>
+
+                    <!-- Dropdown Add Category -->
+                    <ul id="add_category" class="dropdown-content">
+                        <li><a href="{{ url_for('add_category') }}">Add<i class="fas fa-plus-square"></i></a></li>
+                    </ul>
+                    <a class="btn-small blue darken-3 dropdown-trigger" href="#!" data-target="add_category">Add New Category</a>
                 </ul>
             </div>
         </nav>
@@ -38,33 +48,7 @@
 
     <main class="container">
         {% block content %}
-        <div class="row">
-            <div class="col s12">
-                <div class="card indigo lighten-5 center-align">
-                    <ul class="collapsible">
-                        {% for task in tasks %}
-                        <li> 
-                            <!--  style="border: 1px solid red;" -->
-                            <div class="collapsible-header">
-                                <i class="material-icons"></i>
-                                {{ task.task_name }}
-                                {% if task.is_urgent %}
-                                    <span class="badge red white-text text-darken-2">URGENT</span></div>
-                                {% else %}
-                                    <span class="badge green white-text text-darken-2">NOT URGENT</span></div>
-                                {% endif %}
-                            <div class="collapsible-body">
-                                <p>{{ task.task_description }}</p>
-                                <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
-                                <a href="#" class="waves-effect waves-light btn red modal-trigger">Delete</a>
-                            </div>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-      
+
         {% endblock %}
     </main>
 
