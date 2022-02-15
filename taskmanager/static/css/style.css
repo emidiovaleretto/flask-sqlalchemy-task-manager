@@ -16,10 +16,6 @@ body {
     flex: 1 0 auto;
   }
 
-  .card ul {
-    margin-top: 80px;
-  }
-
   .card,
   .badge,
   .btn,
