@@ -23,18 +23,8 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
-
-                    <!-- Dropdown Add New Task -->
-                    <ul id="add_task" class="dropdown-content">
-                        <li><a href="{{ url_for('add_task') }}">Add<i class="fas fa-plus-square right"></i></a></li>
-                    </ul>
-                    <a class="btn-small blue darken-3 dropdown-trigger" href="#!" data-target="add_task">Add New Task</a>
-
-                    <!-- Dropdown Add Category -->
-                    <ul id="add_category" class="dropdown-content">
-                        <li><a href="{{ url_for('add_category') }}">Add<i class="fas fa-plus-square"></i></a></li>
-                    </ul>
-                    <a class="btn-small blue darken-3 dropdown-trigger" href="#!" data-target="add_category">Add New Category</a>
+                    <li><a href="{{ url_for('new_task') }}">New Task</a></li>
+                    <li><a href="{{ url_for('categories') }}">Categories</a></li>   
                 </ul>
             </div>
         </nav>
@@ -48,7 +38,7 @@
 
     <main class="container">
         {% block content %}
-
+        
         {% endblock %}
     </main>
 

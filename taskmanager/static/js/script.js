@@ -30,9 +30,3 @@ document.addEventListener('DOMContentLoaded', function() {
     let select = document.querySelectorAll('select');
     M.FormSelect.init(select);
   });
-
-  // dropdown initialization
-  document.addEventListener('DOMContentLoaded', function() {
-    let dropdown = document.querySelectorAll('.dropdown-trigger');
-    M.Dropdown.init(dropdown);
-  });
