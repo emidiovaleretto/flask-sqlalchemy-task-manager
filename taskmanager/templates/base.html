@@ -55,6 +55,8 @@
                                 {% endif %}
                             <div class="collapsible-body">
                                 <p>{{ task.task_description }}</p>
+                                <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
+                                <a href="#" class="waves-effect waves-light btn red modal-trigger">Delete</a>
                             </div>
                         </li>
                         {% endfor %}
