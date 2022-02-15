@@ -16,8 +16,18 @@ body {
     flex: 1 0 auto;
   }
 
+  .card ul {
+    margin-top: 80px;
+  }
+
   .card,
+  .badge,
   .btn,
   .btn-large {
     border-radius: 5px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 8px 16px;
   }

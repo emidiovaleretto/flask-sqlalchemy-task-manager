@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Sidenav.init(sidenav);
   });
 
+  // collapsible initialization
+  document.addEventListener('DOMContentLoaded', function() {
+    let collapsible = document.querySelectorAll('.collapsible');
+    M.Collapsible.init(collapsible);
+  });
+
   // modal initialization
   document.addEventListener('DOMContentLoaded', function() {
     let modal = document.querySelectorAll('.modal');
