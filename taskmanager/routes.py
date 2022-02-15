@@ -6,12 +6,7 @@ from taskmanager.models import Category, Task
 @app.route("/")
 def home():
     tasks = list(Task.query.order_by(Task.id).all())
-    return render_template("index.html", tasks=tasks)
-
-
-@app.route("/new_task")
-def new_task():
-    return render_template("tasks.html", page_title="new_task")
+    return render_template("tasks.html", tasks=tasks)
 
 
 @app.route("/categories")
