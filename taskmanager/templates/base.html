@@ -38,7 +38,31 @@
 
     <main class="container">
         {% block content %}
-
+        <div class="row">
+            <div class="col s12">
+                <div class="card indigo lighten-5 center-align">
+                    <ul class="collapsible">
+                        {% for task in tasks %}
+                        <li> 
+                            <!--  style="border: 1px solid red;" -->
+                            <div class="collapsible-header">
+                                <i class="material-icons"></i>
+                                {{ task.task_name }}
+                                {% if task.is_urgent %}
+                                    <span class="badge red white-text text-darken-2">URGENT</span></div>
+                                {% else %}
+                                    <span class="badge green white-text text-darken-2">NOT URGENT</span></div>
+                                {% endif %}
+                            <div class="collapsible-body">
+                                <p>{{ task.task_description }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+      
         {% endblock %}
     </main>
 
